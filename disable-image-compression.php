@@ -82,8 +82,3 @@ function lb_disable_image_compression() {
 
 // Initalize plugin on 'init' hook (plugin nothing to do earlier)
 add_action( 'init', array( lb_disable_image_compression(), 'init' ) );
-
-if ( is_admin() ) {
-	require plugin_dir_path( __FILE__ ) . 'admin-notices.php';
-	LBDIC_Admin_Suggestions::instance();
-}
