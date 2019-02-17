@@ -1,0 +1,16 @@
+{
+    "name": "littlebizzy/disable-image-compression",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "homepage": "https://www.littlebizzy.com/plugins/disable-image-compression",
+    "description": "Completely disables all JPEG compression in WordPress including image uploads, thumbnails, and image editing tools, thus retaining original quality.",
+    "keywords": ["wordpress","plugin","disable","turn off","image","jpeg","jpg","media","photo","compress","compression"],
+    "support": {
+        "issues": "https://github.com/littlebizzy/disable-image-compression/issues",
+        "forum": "https://www.littlebizzy.com/members"
+    }
+    "require": {
+        "php": "^7.2",
+        "composer/installers": "~1.0"
+    }
+}
