@@ -7,8 +7,11 @@ Completely disables all JPEG compression in WordPress including image uploads, t
 
 ### Defined Constants
 
-    /* Plugin Meta */
+    /** Plugin Meta */
     define('DISABLE_NAG_NOTICES', true);
+    
+    /** Disable Image Compression Functions */
+    // define('DISABLE_IMAGE_COMPRESSION', true); // default = true
 
 ### Compatibility
 
