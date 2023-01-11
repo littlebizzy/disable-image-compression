@@ -2,13 +2,27 @@
 /*
 Plugin Name: Disable Image Compression
 Plugin URI: https://www.littlebizzy.com/plugins/disable-image-compression
-Description: Completely disables all JPEG compression in WordPress including image uploads, thumbnails, and image editing tools, thus retaining original quality.
-Version: 1.0.2
+Description: Disables all JPEG compression
+Version: 1.1.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+GitHub Plugin URI: littlebizzy/disable-image-compression
+Primary Branch: master
+Prefix: DIMGCP
 */
+
+// disable wordpress.org updates
+add_filter(
+	'gu_override_dot_org',
+	function ( $overrides ) {
+		return array_merge(
+			$overrides,
+			array( 'disable-image-compression/disable-image-compression.php' )
+		);
+	}
+);
 
 
 /**
