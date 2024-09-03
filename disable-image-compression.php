@@ -1,9 +1,10 @@
 <?php
+
 /*
 Plugin Name: Disable Image Compression
 Plugin URI: https://www.littlebizzy.com/plugins/disable-image-compression
 Description: Disables all JPEG compression
-Version: 1.1.0
+Version: 2.0.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPL3
@@ -13,86 +14,24 @@ Primary Branch: master
 Prefix: DIMGCP
 */
 
-// disable wordpress.org updates
-add_filter(
-	'gu_override_dot_org',
-	function ( $overrides ) {
-		return array_merge(
-			$overrides,
-			array( 'disable-image-compression/disable-image-compression.php' )
-		);
-	}
-);
-
-
-/**
- * Define main plugin class
- */
-class LB_Disable_Image_Compression {
-
-	/**
-	 * A reference to an instance of this class.
-	 *
-	 * @since 1.0.0
-	 * @var   object
-	 */
-	private static $instance = null;
-
-	/**
-	 * Initalize plugin actions
-	 *
-	 * @return void
-	 */
-	public function init() {
-
-		// Disable compression on upload
-		add_filter( 'jpeg_quality', array( $this, 'set_compression' ), 999 );
-		// Disable compression whe editing uploaded image
-		add_filter( 'wp_editor_set_quality', array( $this, 'set_compression' ), 999 );
-	}
-
-	/**
-	 * Returns plugin base file
-	 * @return [type] [description]
-	 */
-	public static function file() {
-		return __FILE__;
-	}
-
-	/**
-	 * Set new compression value.
-	 *
-	 * @param  int $compression Default compression value.
-	 * @return int
-	 */
-	public function set_compression( $compression ) {
-		return 100;
-	}
-
-	/**
-	 * Returns the instance.
-	 *
-	 * @since  1.0.0
-	 * @return object
-	 */
-	public static function get_instance() {
-
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-		return self::$instance;
-	}
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-/**
- * Returns instance of LB_Disable_Image_Compression class
- *
- * @return object
- */
-function lb_disable_image_compression() {
-	return LB_Disable_Image_Compression::get_instance();
+// Disable WordPress.org updates for this plugin
+add_filter('gu_override_dot_org', function ($overrides) {
+    $overrides['disable-image-compression/disable-image-compression.php'] = true;
+    return $overrides;
+});
+
+// Set JPEG compression to 100%
+function disable_image_compression($quality) {
+    return 100;
 }
 
-// Initalize plugin on 'init' hook (plugin nothing to do earlier)
-add_action( 'init', array( lb_disable_image_compression(), 'init' ) );
+// Apply compression settings on image upload and editing
+add_filter('jpeg_quality', 'disable_image_compression', 999);
+add_filter('wp_editor_set_quality', 'disable_image_compression', 999);
+
+// Ref: ChatGPT
