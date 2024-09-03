@@ -4,6 +4,13 @@ Disables all JPEG compression
 
 ## Changelog
 
+### 2.0.0
+- completely refactored code to WordPress standards
+- no more PHP classes
+- maintains support for Git Updater
+- supports PHP 7.0 to 8.3
+- supports Multisite
+
 ### 1.1.0
 - cleaned up plugin files
 - removed admin notice script
