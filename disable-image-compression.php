@@ -26,7 +26,7 @@ add_filter('gu_override_dot_org', function ($overrides) {
 });
 
 // Set JPEG compression to 100%
-function disable_image_compression($quality) {
+function disable_image_compression(int $quality): int {
     return 100;
 }
 
