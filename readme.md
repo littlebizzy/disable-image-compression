@@ -4,6 +4,9 @@ Disables all JPEG compression
 
 ## Changelog
 
+### 2.0.1
+- fix `gu_override_dot_org` snippet
+
 ### 2.0.0
 - completely refactored code to WordPress standards
 - no more PHP classes
