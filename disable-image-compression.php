@@ -4,7 +4,7 @@
 Plugin Name: Disable Image Compression
 Plugin URI: https://www.littlebizzy.com/plugins/disable-image-compression
 Description: Disables all JPEG compression
-Version: 2.0.0
+Version: 2.0.1
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPL3
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 
 // Disable WordPress.org updates for this plugin
 add_filter('gu_override_dot_org', function ($overrides) {
-    $overrides['disable-image-compression/disable-image-compression.php'] = true;
+    $overrides[] = 'disable-image-compression/disable-image-compression.php';
     return $overrides;
 });
 
