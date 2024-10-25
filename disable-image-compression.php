@@ -1,29 +1,28 @@
 <?php
-
 /*
 Plugin Name: Disable Image Compression
 Plugin URI: https://www.littlebizzy.com/plugins/disable-image-compression
 Description: Disables all JPEG compression
-Version: 2.0.1
+Version: 2.0.2
+Requires PHP: 7.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: littlebizzy/disable-image-compression
 Primary Branch: master
-Prefix: DIMGCP
 */
 
-// Exit if accessed directly
-if (!defined('ABSPATH')) {
+// prevent direct access
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Disable WordPress.org updates for this plugin
-add_filter('gu_override_dot_org', function ($overrides) {
+// disable wordpress.org updates for this plugin
+add_filter( 'gu_override_dot_org', function( $overrides ) {
     $overrides[] = 'disable-image-compression/disable-image-compression.php';
     return $overrides;
-});
+}, 999 );
 
 // Set JPEG compression to 100%
 function disable_image_compression(int $quality): int {
