@@ -4,12 +4,20 @@ Disables all JPEG compression
 
 ## Changelog
 
+### 2.0.3
+- removed `int` from parameter for PHP 7.0 compatibility
+- now only uses the `int` return type hint
+- optimized spacing and syntax
+- added `Tested up to` header
+- added `Update URI` header
+- added Test Domain` header
+
 ### 2.0.2
 - added `Requires PHP` plugin header
 - improved `gu_override_dot_org` snippet
 
 ### 2.0.1
-- fix `gu_override_dot_org` snippet
+- fixed `gu_override_dot_org` snippet
 
 ### 2.0.0
 - completely refactored code to WordPress standards
