@@ -10,7 +10,7 @@ Disables all JPEG compression
 - optimized spacing and syntax
 - added `Tested up to` header
 - added `Update URI` header
-- added Test Domain` header
+- added `Text Domain` header
 
 ### 2.0.2
 - added `Requires PHP` plugin header
